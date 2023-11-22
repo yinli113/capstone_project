@@ -1,0 +1,55 @@
+Table,Field,Data Type,Constraints,Description,Source
+dim_immi_airline,travel_id,VARCHAR(20),"PRIMARY KEY, NOT NULL",Unique identifier for each travel record,stage_immigration
+dim_immi_airline,city_code,VARCHAR(5),,Code of the city where the immigrant arrived,stage_immigration
+dim_immi_airline,airline,VARCHAR(10),,Airline used for travel,stage_immigration
+dim_immi_airline,flight_number,VARCHAR(10),,Flight number of the travel,stage_immigration
+dim_immi_airline,visa_code,INTEGER,,Type of visa used for entry,stage_immigration
+,,,,,
+dim_arrive_calendar,arrive_date,DATE,"PRIMARY KEY, NOT NULL",Date of arrival,stage_immigration
+dim_arrive_calendar,year,INTEGER,NOT NULL,Year of arrival,stage_immigration
+dim_arrive_calendar,month,INTEGER,NOT NULL,Month of arrival,stage_immigration
+dim_arrive_calendar,week,INTEGER,NOT NULL,Week number of arrival,stage_immigration
+dim_arrive_calendar,day,INTEGER,NOT NULL,Day of the month of arrival,stage_immigration
+,,,,,
+dim_depart_calendar,depart_date,DATE,"PRIMARY KEY, NOT NULL",Date of departure,stage_immigration
+dim_depart_calendar,year,INTEGER,NOT NULL,Year of departure,stage_immigration
+dim_depart_calendar,month,INTEGER,NOT NULL,Month of departure,stage_immigration
+dim_depart_calendar,week,INTEGER,NOT NULL,Week number of departure,stage_immigration
+dim_depart_calendar,day,INTEGER,NOT NULL,Day of the month of departure,stage_immigration
+,,,,,
+demo_population_dim,demo_pop_id,INTEGER,"PRIMARY KEY, NOT NULL",Unique identifier for each demographic record,stage_demographics
+demo_population_dim,State,VARCHAR(50),,State in the USA,stage_demographics
+demo_population_dim,Median_Age,FLOAT,,Median age of the population in the state,stage_demographics
+demo_population_dim,Male_Population,INTEGER,,Number of males in the population in the state,stage_demographics
+demo_population_dim,Female_Population,INTEGER,,Number of females in the population in the state,stage_demographics
+demo_population_dim,Total_Population,INTEGER,,Total population in the state,stage_demographics
+demo_population_dim,Foreign_born,INTEGER,,Number of foreign-born individuals in the state,stage_demographics
+demo_population_dim,State_Code,VARCHAR(2),,Code representing the state,stage_demographics
+demo_population_dim,Race,VARCHAR(50),,Race demographics in the state,stage_demographics
+,,,,,
+dim_immi_personel,cic_id,INTEGER,"PRIMARY KEY, NOT NULL",Unique identifier for each immigrant,stage_immigration
+dim_immi_personel,country_code_1,VARCHAR(5),,Code representing the immigrant's country of origin,stage_immigration
+dim_immi_personel,country_code_2,VARCHAR(5),,Code for another country associated with the immigrant,stage_immigration
+dim_immi_personel,birth_year,INTEGER,,Immigrant's year of birth,stage_immigration
+dim_immi_personel,gender,VARCHAR(1),,Gender of the immigrant,stage_immigration
+,,,,,
+immi_demographics,cic_id,INTEGER, NOT NULL,Unique identifier for the demographic record,temp_immigration
+immi_demographics,country_code_1,VARCHAR(5),,Code representing the first country of origin,temp_immigration
+immi_demographics,country_code_2,VARCHAR(5),,Code representing the second country of origin,temp_immigration
+immi_demographics,city_code,VARCHAR(5),,Code of the city of arrival,temp_immigration
+immi_demographics,arrive_date,DATE,,Date of arrival,temp_immigration
+immi_demographics,immigration_state_code,VARCHAR(2),"UNIQUE, NOT NULL",Code of the state of immigration,temp_immigration
+immi_demographics,depart_date,DATE,,Date of departure,temp_immigration
+immi_demographics,visa_code,INTEGER,,Type of visa used for entry,temp_immigration
+immi_demographics,birth_year,INTEGER,,Year of birth of the immigrant,temp_immigration
+immi_demographics,gender,VARCHAR(1),,Gender of the immigrant,temp_immigration
+immi_demographics,airline,VARCHAR(10),,Airline used for travel,temp_immigration
+immi_demographics,flight_number,VARCHAR(10),,Flight number,temp_immigration
+immi_demographics,avg_Median_Age,FLOAT,,Average median age in the state,temp_demographics
+immi_demographics,avg_Male_Population,INTEGER,,Average male population in the state,temp_demographics
+immi_demographics,avg_Female_Population,INTEGER,,Average female population in the state,temp_demographics
+immi_demographics,avg_Total_Population,INTEGER,,Average total population in the state,temp_demographics
+immi_demographics,avg_Number_of_Veterans,INTEGER,,Average number of veterans in the state,temp_demographics
+immi_demographics,avg_Foreign_born,INTEGER,,Average foreign-born population in the state,temp_demographics
+immi_demographics,demographics_state_code,VARCHAR(2),"UNIQUE, NOT NULL",State code for demographics,temp_demographics
+immi_demographics,Race,VARCHAR(50),,Race demographics in the state,temp_demographics
